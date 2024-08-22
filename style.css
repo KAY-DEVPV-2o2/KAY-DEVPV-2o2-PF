@@ -34,9 +34,35 @@
 #contact {
     padding-bottom: 4rem;
 }
+
 /* about section image css */
 .imageAboutPage {
     width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    /* Style for the image with a neon border */
+.imageAboutPage {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 0 10px rgba(83, 73, 197, 0.8); /* Neon glow effect */
+    border: 3px solid rgba(140, 39, 207, 0.523); /* Neon border */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Optional: Hover effect for a more dynamic glow */
+.imageAboutPage:hover {
+    box-shadow: 0 0 20px rgba(140, 39, 207, 0.523); /* Intensified neon glow on hover */
+    border: 3px solid rgb(65, 45, 100); /* Full neon border on hover */
+}
+border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 25px rgba(18, 10, 170, 0.947); /* Optional: Add shadow for better visibility */
+}
+
+/* Style for the paragraph text */
+.text-center {
+    text-align: center; /* Center-align text */
+    margin-top: 1.5rem; /* Add margin to the top for spacing */
+    line-height: 1.6; /* Improve readability */
 }
 
 /* services section css */
