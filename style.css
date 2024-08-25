@@ -1,61 +1,104 @@
-/* display background color black on navbar scroll */
-.navbarScroll.navbarDark {
-    background-color: black;
+/* General Body and HTML Settings */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
 }
 
-/* hero background image */
-.bgimage {
-    height:100vh;
-    background: url('images/heroImage.jpg');
-    background-size:cover;
-    position:relative;
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
-/* text css above hero image*/
-.hero_title {
-    font-size: 4.5rem;
+
+#heroVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
-.hero_desc {
-    font-size: 2rem;
-}
-.hero-text {
-    text-align: center;
+
+.hero-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
     color: white;
+    z-index: 2;
 }
 
-/* spacing on all sections */
-/* #about, #services, #portfolio, #contact {
-    margin-top: 4rem;
-    padding-top: 4rem;
-} */
-#contact {
-    padding-bottom: 4rem;
+.hero-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in-out;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* Neon glow */
 }
 
-/* about section image css */
-.imageAboutPage {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    /* Style for the image with a neon border */
+.hero-overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2.5s ease-in-out;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* Neon glow */
+}
+
+.hero-overlay a.btn-primary {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    background-color: #0d00ff; /* Neon blue */
+    border-color: #00ffff; /* Neon blue border */
+    color: white; /* Text color */
+    animation: fadeIn 3s ease-in-out;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff; /* Vibrant glow */
+}
+
+.hero-overlay a.btn-primary:hover {
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff; /* Enhanced glow on hover */
+}
+
+/* Navbar */
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Optional Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* About section image CSS */
 .imageAboutPage {
     width: 100%;
     height: auto; /* Maintain aspect ratio */
     border-radius: 8px; /* Optional: Add rounded corners */
-    box-shadow: 0 0 10px rgba(83, 73, 197, 0.8); /* Neon glow effect */
-    border: 3px solid rgba(140, 39, 207, 0.523); /* Neon border */
+    box-shadow: 0 0 10px #0d00ff; /* Neon glow effect */
+    border: 3px solid #00ffff; /* Neon border */
     transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
 /* Optional: Hover effect for a more dynamic glow */
 .imageAboutPage:hover {
-    box-shadow: 0 0 20px rgba(140, 39, 207, 0.523); /* Intensified neon glow on hover */
-    border: 3px solid rgb(65, 45, 100); /* Full neon border on hover */
-}
-border-radius: 8px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 25px rgba(18, 10, 170, 0.947); /* Optional: Add shadow for better visibility */
+    box-shadow: 0 0 30px 10px #0d00ff; /* Wider and more intense neon glow */
+    border: 5px solid #0d00ff; /* Thicker neon border on hover */
 }
 
 /* Style for the paragraph text */
@@ -65,38 +108,45 @@ border-radius: 8px; /* Optional: Add rounded corners */
     line-height: 1.6; /* Improve readability */
 }
 
-/* services section css */
+/* Services section CSS */
 .servicesText.card {
     height: 280px;
     cursor: pointer;
-  }
+}
+
 .servicesIcon {
     font-size: 36px;
     text-align: center;
     width: 100%;
 }
+
 .card-title {
     text-align: center;
 }
+
 .card:hover .servicesIcon {
     color: #008000;
 }
+
 .servicesText:hover {
     border: 1px solid #008000;
 }
 
-/* social media icons styling */
+/* Social media icons styling */
 .social-icons {
     font-size: 36px;
     cursor: pointer;
 }
-.fa-facebook:hover,.fa-instagram:hover,.fa-twitter:hover,.fa-linkedin:hover, .fa-twitch:hover {
+
+.fa-facebook:hover, .fa-instagram:hover, .fa-twitter:hover, .fa-linkedin:hover, .fa-twitch:hover {
     color: #008000;
 }
+
 .fab {
     color: #000000;
 }
-/* footer styling */
+
+/* Footer styling */
 #footer {
     background-color: #808080;
     text-align: center;
