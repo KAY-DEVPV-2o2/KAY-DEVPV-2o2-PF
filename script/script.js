@@ -1,72 +1,56 @@
-// Add class navbarDark on navbar scroll
-const header = document.querySelector('.navbar');
-console.log(header);
-window.onscroll = function() {
-    const top = window.scrollY;
-    if (top >= 100) {
-        header.classList.add('navbarDark');
-    } else {
-        header.classList.remove('navbarDark');
+document.addEventListener('DOMContentLoaded', function () {
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Navbar text color change on scroll
+    const header = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.onscroll = function () {
+        const top = window.scrollY;
+        if (top >= 100) {
+            header.classList.add('navbar-dark');
+            header.classList.add('bg-dark'); // Make sure navbar stays dark
+            navLinks.forEach(link => link.style.color = '#ffffff'); // White text color
+        } else {
+            header.classList.remove('navbar-dark');
+            header.classList.remove('bg-dark'); // Remove dark background
+            navLinks.forEach(link => link.style.color = ''); // Reset to default
+        }
+    };
+
+    // Add fade-in effect for hero-overlay elements when they are scrolled into view
+    const heroOverlay = document.querySelector('.hero-overlay');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                heroOverlay.classList.add('fade-in');
+            } else {
+                heroOverlay.classList.remove('fade-in'); // Optional: Remove class when not in view
+            }
+        });
+    }, { threshold: 0.1 });
+
+    if (heroOverlay) {
+        observer.observe(heroOverlay);
     }
-}
-
-// Smooth scrolling for all anchor links
-const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-smoothScrollLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-});
-
-// Collapse navbar after click on small devices
-const navLinks = document.querySelectorAll('.nav-item');
-const menuToggle = document.getElementById('navbarSupportedContent');
-
-navLinks.forEach((l) => {
-    l.addEventListener('click', () => {
-        new bootstrap.Collapse(menuToggle).toggle();
-    });
-});
-
-// Hero section text and button animations
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-overlay h1');
-    const heroDesc = document.querySelector('.hero-overlay p');
-    const heroBtn = document.querySelector('.hero-overlay a.btn-primary');
-
-    // Adding animation classes to trigger animations
-    heroTitle.classList.add('animate__animated', 'animate__fadeInDown');
-    heroDesc.classList.add('animate__animated', 'animate__fadeInUp');
-    heroBtn.classList.add('animate__animated', 'animate__bounceIn');
-
-    // Adding glow effects for hero section text on hover
-    heroTitle.addEventListener('mouseover', () => {
-        heroTitle.style.boxShadow = '0 0 20px #0d00ff';
-        heroTitle.style.textShadow = '0 0 10px #0d00ff';
-    });
-
-    heroTitle.addEventListener('mouseout', () => {
-        heroTitle.style.boxShadow = 'none';
-        heroTitle.style.textShadow = 'none';
-    });
-
-    heroDesc.addEventListener('mouseover', () => {
-        heroDesc.style.boxShadow = '0 0 20px #0d00ff';
-        heroDesc.style.textShadow = '0 0 10px #0d00ff';
-    });
-
-    heroDesc.addEventListener('mouseout', () => {
-        heroDesc.style.boxShadow = 'none';
-        heroDesc.style.textShadow = 'none';
-    });
-
-    heroBtn.addEventListener('mouseover', () => {
-        heroBtn.style.boxShadow = '0 0 20px #0d00ff';
-    });
-
-    heroBtn.addEventListener('mouseout', () => {
-        heroBtn.style.boxShadow = 'none';
+    
+    // Optional: Adding a function to handle additional animations or interactions
+    const heroText = document.querySelectorAll('.hero-overlay h1, .hero-overlay p');
+    heroText.forEach(text => {
+        text.addEventListener('mouseover', () => {
+            text.style.textShadow = '0 0 20px #00ffff, 0 0 30px #00ffff';
+            text.style.transition = 'text-shadow 0.3s ease';
+        });
+        text.addEventListener('mouseout', () => {
+            text.style.textShadow = '0 0 10px #00ffff, 0 0 20px #00ffff';
+        });
     });
 });
