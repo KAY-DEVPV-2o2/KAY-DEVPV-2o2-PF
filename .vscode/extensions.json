@@ -1,0 +1,28 @@
+{
+    "recommendations": [
+        "msjsdiag.debugger-for-chrome",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "rvest.vs-code-prettier-eslint",
+        "dbaeumer.vscode-eslint",
+        "firefox-devtools.vscode-firefox-debug",
+        "swellaby.node-pack",
+        "redhat.fabric8-analytics",
+        "mikestead.dotenv",
+        "wallabyjs.quokka-vscode",
+        "christian-kohler.path-intellisense",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "ms-vsliveshare.vsliveshare",
+        "redhat.vscode-yaml",
+        "github.vscode-pull-request-github",
+        "visualstudioexptteam.vscodeintellicode",
+        "be5invis.vscode-icontheme-nomo-dark",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "orta.vscode-jest",
+        "wix.vscode-import-cost",
+        "pflannery.vscode-versionlens",
+        "christian-kohler.npm-intellisense",
+        "bengreenier.vscode-node-readme",
+        "idered.npm"
+    ]
+}
